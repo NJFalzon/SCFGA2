@@ -23,6 +23,12 @@ public class AIMove : MonoBehaviour
         seeker = GetComponent<Seeker>();
     }
 
+    public void FindTargets(GameObject target)
+    {
+        this.target = target;
+        seeker = GetComponent<Seeker>();
+    }
+
     public GameObject ClosestFood()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
@@ -66,7 +72,6 @@ public class AIMove : MonoBehaviour
 
         else if ((timer -= Time.deltaTime) <= 0)
         {
-            GameObject.Find("PathFindingGrid").GetComponent<AstarPath>().Scan();
             seeker.StartPath(transform.position, target.transform.position, ReadyToMove);
         }
     }

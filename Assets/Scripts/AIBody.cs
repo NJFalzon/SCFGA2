@@ -15,20 +15,19 @@ public class AIBody : MonoBehaviour
     {
         if ((timer -= Time.deltaTime) <= 0)
         {
-            Eat();
             SpawnBody();
             GoToEnd();
             timer = timerMax;
         }
     }
 
-    void Eat()
+    void OnTriggerEnter2D(Collider2D target)
     {
-        if (target != null && Vector3.Distance(target.transform.position, transform.position) < 0.5f)
+        if (target.transform.tag == "Target")
         {
             snakeSize++;
             GetComponent<AIMove>().ClosestFood();
-            Destroy(target);
+            Destroy(target.gameObject);
         }
     }
 

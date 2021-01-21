@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\DubiousFood.cs" />
     <Compile Include="Assets\Scripts\AIBody.cs" />
     <Compile Include="Assets\Scripts\SnakeFood.cs" />
+    <Compile Include="Assets\Scripts\Obstacle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1212,7 +1212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1158384059470415676, guid: 15608901657347242bef58dbbeed71af, type: 3}
       propertyPath: snakeSize
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1762515636163618594, guid: 15608901657347242bef58dbbeed71af, type: 3}
       propertyPath: m_Name

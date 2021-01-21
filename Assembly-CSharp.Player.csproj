@@ -56,12 +56,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Scanning.cs" />
+    <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\AIMove.cs" />
     <Compile Include="Assets\Scripts\Trail.cs" />
+    <Compile Include="Assets\Scripts\Crash.cs" />
+    <Compile Include="Assets\Scripts\NextLevel.cs" />
+    <Compile Include="Assets\Scripts\DubiousFood.cs" />
     <Compile Include="Assets\Scripts\AIBody.cs" />
     <Compile Include="Assets\Scripts\SnakeFood.cs" />
-    <Compile Include="Assets\DubiousFood.cs" />
-    <Compile Include="Assets\Crash.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

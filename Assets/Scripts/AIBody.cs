@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIBody : MonoBehaviour
 {
-    [SerializeField] int snakeSize = 3;
+    public int snakeSize = 3;
     [SerializeField] GameObject snakeBody;
     [SerializeField] GameObject target;
 
@@ -18,16 +18,6 @@ public class AIBody : MonoBehaviour
             SpawnBody();
             GoToEnd();
             timer = timerMax;
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D target)
-    {
-        if (target.transform.tag == "Target")
-        {
-            snakeSize++;
-            GetComponent<AIMove>().ClosestFood();
-            Destroy(target.gameObject);
         }
     }
 

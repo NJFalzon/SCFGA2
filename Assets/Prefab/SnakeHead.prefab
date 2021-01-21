@@ -10,12 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1762515636163618598}
   - component: {fileID: 1762515636163618597}
-  - component: {fileID: 1762515636163618596}
-  - component: {fileID: 1762515636163618595}
-  - component: {fileID: 1762515636163618600}
-  - component: {fileID: 1847981114157611085}
   - component: {fileID: 5724135004008937771}
   - component: {fileID: -3930497138239880695}
+  - component: {fileID: -1158384059470415676}
+  - component: {fileID: 1847981114157611085}
   m_Layer: 9
   m_Name: SnakeHead
   m_TagString: Untagged
@@ -88,74 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1762515636163618596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762515636163618594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
---- !u!114 &1762515636163618595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762515636163618594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fca858595f36646ab9f5cfcf39c192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1762515636163618600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762515636163618594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96aa2e8e23a95ae49810a9b6f88b4455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snakeSize: 3
-  snakeBody: {fileID: 6820291605347871475, guid: 2aee899d6887a134290cd8e44fe5b19b, type: 3}
-  target: {fileID: 0}
---- !u!114 &1847981114157611085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762515636163618594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c7c9e89e60607a48a27ccd0d573aa1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySnakeBody: {fileID: 6494600917656451932, guid: 1807f60de9731d04bbc79660539795b9, type: 3}
 --- !u!61 &5724135004008937771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,3 +133,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1158384059470415676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762515636163618594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75a5182634c6a6247a4e9213bdd8ad7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positions: []
+  up: 273
+  upAlt: 119
+  down: 115
+  downAlt: 274
+  left: 276
+  leftAlt: 97
+  right: 275
+  rightAlt: 100
+  playerBody: {fileID: 6820291605347871475, guid: 2aee899d6887a134290cd8e44fe5b19b, type: 3}
+  snakeSize: 3
+--- !u!114 &1847981114157611085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762515636163618594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7c9e89e60607a48a27ccd0d573aa1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tag: 

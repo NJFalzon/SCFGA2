@@ -7,12 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private string username;
-    [SerializeField] private float time;
+    public string username;
+    public float time;
 
     private bool started = false;
-    private bool ended = false;
-
 
     private void Awake()
     {
@@ -36,13 +34,16 @@ public class GameManager : MonoBehaviour
 
     void Timer()
     {
-        if (started && !ended)
+        if (started)
         {
             time += Time.deltaTime;
         }
     }
 
-
+    public void Started(bool start)
+    {
+        started = start;
+    }
 
     public void SetUsername(string username)
     {

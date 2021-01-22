@@ -22,7 +22,16 @@ public class NextLevel : MonoBehaviour
     {
         if(GetComponent<SpriteRenderer>().color == active)
         {
+            StopTimer();
             SceneManager.LoadScene(nextLevel);
+        }
+    }
+
+    private void StopTimer()
+    {
+        if(SceneManager.GetActiveScene().name == "Level3")
+        {
+            GameManager.Instance.Started(false);
         }
     }
 }

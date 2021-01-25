@@ -9,7 +9,7 @@ public class AIBody : MonoBehaviour
     [SerializeField] GameObject target;
 
     float timer = 0;
-    readonly float timerMax = 0.5f;
+    readonly float timerMax = 0.2f;
 
     void Update()
     {

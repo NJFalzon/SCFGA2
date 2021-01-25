@@ -23,6 +23,7 @@ public class NextLevel : MonoBehaviour
         if(GetComponent<SpriteRenderer>().color == active)
         {
             StopTimer();
+            GameManager.Instance.snakesize = collision.GetComponent<PlayerMove>().snakeSize;
             SceneManager.LoadScene(nextLevel);
         }
     }

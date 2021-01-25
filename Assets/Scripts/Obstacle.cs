@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     bool isPosA = true;
 
     float timer = 0;
-    readonly float maxTimer = 0.5f;
+    readonly float maxTimer = 0.2f;
 
 
     private void Update()

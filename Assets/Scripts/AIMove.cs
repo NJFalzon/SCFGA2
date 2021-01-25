@@ -10,7 +10,7 @@ public class AIMove : MonoBehaviour
     List<Vector3> places;
 
     float timer = 0;
-    readonly float maxTimer = 0.5f;
+    readonly float maxTimer = 0.2f;
 
     private void Start()
     {
@@ -58,9 +58,16 @@ public class AIMove : MonoBehaviour
         if (Vector3.Distance(transform.position, pathToFollow.vectorPath[1]) >= 0.5f)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, pathToFollow.vectorPath[1], 1f);
+            ShowPath(pathToFollow.vectorPath);
             places.Add(this.transform.position);
             timer = maxTimer;
         }
+    }
+
+    private void ShowPath(List<Vector3> path)
+    {
+        GetComponent<LineRenderer>().positionCount = path.Count;
+        GetComponent<LineRenderer>().SetPositions(path.ToArray());
     }
 
     private void Update()

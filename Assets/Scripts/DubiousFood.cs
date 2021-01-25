@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DubiousFood : MonoBehaviour
 {
@@ -20,19 +18,14 @@ public class DubiousFood : MonoBehaviour
     // Update is called once per frame
     void DidPlayerPass()
     {
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.up) * 3, Color.red);
-        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up), 3, layerMask);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.up) * 20, Color.red);
+        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up), 20, layerMask);
 
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.left) * 3, Color.red);
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 3, layerMask);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.left) * 20, Color.red);
+        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 20, layerMask);
 
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.down) * 3, Color.red);
-        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.down), 3, layerMask);
 
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right) * 3, Color.red);
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 3, layerMask);
-
-        if (hitUp || hitLeft || hitRight || hitDown)
+        if (hitLeft  || hitUp)
         {
             passed = true;
         }

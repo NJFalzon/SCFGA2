@@ -21,16 +21,18 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] KeyCode rightAlt;
     bool isRight = false;
 
+    bool isCommand = false;
+
     [SerializeField] GameObject playerBody;
     public int snakeSize = 3;
 
     float timer = 0;
-    readonly float timerMax = 0.5f;
+    readonly float timerMax = 0.2f;
 
     void Start()
     {
         positions = new List<Vector3>();
-
+        snakeSize = GameManager.Instance.snakesize;
         isUp = false;
         isDown = false;
         isLeft = true;
@@ -45,47 +47,55 @@ public class PlayerMove : MonoBehaviour
 
     void Control()
     {
-        if (isUp || isDown)
+        if (!isCommand)
         {
-            if(Input.GetKeyDown(left) || Input.GetKeyDown(leftAlt))
+            if (isUp || isDown)
             {
-                isUp = false;
-                isDown = false;
-                isLeft = true;
-                isRight = false;
+                if (Input.GetKeyDown(left) || Input.GetKeyDown(leftAlt))
+                {
+                    isUp = false;
+                    isDown = false;
+                    isLeft = true;
+                    isRight = false;
+                    isCommand = true;
+                }
+
+                if (Input.GetKeyDown(right) || Input.GetKeyDown(rightAlt))
+                {
+                    isUp = false;
+                    isDown = false;
+                    isLeft = false;
+                    isRight = true;
+                    isCommand = true;
+                }
             }
 
-            if (Input.GetKeyDown(right) || Input.GetKeyDown(rightAlt))
+            if (isLeft || isRight)
             {
-                isUp = false;
-                isDown = false;
-                isLeft = false;
-                isRight = true;
-            }
-        }
+                if (Input.GetKeyDown(up) || Input.GetKeyDown(upAlt))
+                {
+                    isUp = true;
+                    isDown = false;
+                    isLeft = false;
+                    isRight = false;
+                    isCommand = true;
+                }
 
-        if (isLeft || isRight)
-        {
-            if (Input.GetKeyDown(up) || Input.GetKeyDown(upAlt))
-            {
-                isUp = true;
-                isDown = false;
-                isLeft = false;
-                isRight = false;
-            }
-
-            if (Input.GetKeyDown(down) || Input.GetKeyDown(downAlt))
-            {
-                isUp = false;
-                isDown = true;
-                isLeft = false;
-                isRight = false;
+                if (Input.GetKeyDown(down) || Input.GetKeyDown(downAlt))
+                {
+                    isUp = false;
+                    isDown = true;
+                    isLeft = false;
+                    isRight = false;
+                    isCommand = true;
+                }
             }
         }
 
         if ((timer -= Time.deltaTime) <= 0)
         {
             Move();
+            isCommand = false;
             timer = timerMax;
         }
     }

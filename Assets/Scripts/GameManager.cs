@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public string username;
     public float time;
 
+    public int snakesize = 3;
+
     private bool started = false;
 
     private void Awake()
@@ -64,5 +66,12 @@ public class GameManager : MonoBehaviour
     public float GetTime()
     {
         return time;
+    }
+
+    public void Restart()
+    {
+        username = "";
+        time = 0;
+        SceneManager.LoadScene("StartLevel");
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class StartGameScript : MonoBehaviour
@@ -11,7 +9,7 @@ public class StartGameScript : MonoBehaviour
         string name = GetComponentInChildren<InputField>().text;
         GameObject.Find("GameManager").GetComponent<GameManager>().SetUsername(name);
 
-        if (name.Length < 3)
+        if (name.Length < 3 || name.Length >= 10)
         {
             GetComponentInChildren<Button>().interactable = false;
         }

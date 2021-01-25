@@ -29,8 +29,6 @@ public class Crash : MonoBehaviour
             if (transform.tag == "Dead")
             {
                 GetComponent<AIBody>().snakeSize++;
-                GetComponent<AIMove>().ClosestFood();
-                Destroy(collision.gameObject);
             }
             else
             {

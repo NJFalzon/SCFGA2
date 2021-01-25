@@ -7,7 +7,9 @@ public class AIMove : MonoBehaviour
     Seeker seeker;
     Path pathToFollow;
     GameObject target;
+
     List<Vector3> places;
+    bool lineEnabled = false;
 
     float timer = 0;
     readonly float maxTimer = 0.2f;
@@ -17,34 +19,10 @@ public class AIMove : MonoBehaviour
         places = new List<Vector3>();
     }
 
-    void FindTargets()
-    {
-        target = ClosestFood();
-        seeker = GetComponent<Seeker>();
-    }
-
     public void FindTargets(GameObject target)
     {
         this.target = target;
         seeker = GetComponent<Seeker>();
-    }
-
-    public GameObject ClosestFood()
-    {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
-        int chosenOne = 0;
-
-        for(int i=0; i<targets.Length; i++)
-        {
-            if(Vector3.Distance(targets[i].transform.position,transform.position) 
-                < Vector3.Distance(targets[chosenOne].transform.position, transform.position))
-            {
-                chosenOne = i;
-            }
-        }
-
-        GetComponent<AIBody>().setTarget(targets[chosenOne]);
-        return targets[chosenOne];
     }
 
     void ReadyToMove(Path p)
@@ -58,7 +36,6 @@ public class AIMove : MonoBehaviour
         if (Vector3.Distance(transform.position, pathToFollow.vectorPath[1]) >= 0.5f)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, pathToFollow.vectorPath[1], 1f);
-            ShowPath(pathToFollow.vectorPath);
             places.Add(this.transform.position);
             timer = maxTimer;
         }
@@ -66,21 +43,27 @@ public class AIMove : MonoBehaviour
 
     private void ShowPath(List<Vector3> path)
     {
-        GetComponent<LineRenderer>().positionCount = path.Count;
-        GetComponent<LineRenderer>().SetPositions(path.ToArray());
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            lineEnabled = !lineEnabled;
+            GetComponent<LineRenderer>().enabled = lineEnabled;
+        }
+
+        if (lineEnabled)
+        {
+            GetComponent<LineRenderer>().positionCount = path.Count;
+            GetComponent<LineRenderer>().SetPositions(path.ToArray());
+        }
     }
 
     private void Update()
     {
-        if (target == null)
-        {
-            FindTargets();
-        }
-
-        else if ((timer -= Time.deltaTime) <= 0)
+        if ((timer -= Time.deltaTime) <= 0)
         {
             seeker.StartPath(transform.position, target.transform.position, ReadyToMove);
         }
+
+        ShowPath(pathToFollow.vectorPath);
     }
 
     public List<Vector3> GetPath()

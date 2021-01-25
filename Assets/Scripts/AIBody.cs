@@ -16,7 +16,6 @@ public class AIBody : MonoBehaviour
         if ((timer -= Time.deltaTime) <= 0)
         {
             SpawnBody();
-            GoToEnd();
             timer = timerMax;
         }
     }
@@ -26,14 +25,6 @@ public class AIBody : MonoBehaviour
         if(transform.parent.childCount < snakeSize)
         {
             Instantiate(snakeBody).transform.parent = transform.parent;
-        }
-    }
-
-    void GoToEnd()
-    {
-        if(snakeSize == 6)
-        {
-            GetComponent<AIMove>().FindTargets(GameObject.Find("EndTarget"));
         }
     }
 

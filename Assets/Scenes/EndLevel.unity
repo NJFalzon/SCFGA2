@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf5a8309c56243408e043e438295312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: {fileID: 553682119}
+  username: {fileID: 553682119}
   time: {fileID: 1423179158}
 --- !u!114 &1073754974
 MonoBehaviour:
